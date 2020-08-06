@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fiap.Aula01.UI", "Fiap.Aula01.UI\Fiap.Aula01.UI.csproj", "{A7162D6D-B8A0-412F-8A0F-8BB228702494}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7162D6D-B8A0-412F-8A0F-8BB228702494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7162D6D-B8A0-412F-8A0F-8BB228702494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7162D6D-B8A0-412F-8A0F-8BB228702494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7162D6D-B8A0-412F-8A0F-8BB228702494}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2B9C2CA-3497-4434-A924-3402136C3BCF}
+	EndGlobalSection
+EndGlobal
