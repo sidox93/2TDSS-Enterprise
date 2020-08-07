@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fiap.Aula01.UI.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,6 +15,17 @@ namespace Fiap.Aula01.UI.Models
         public virtual void Comprar()
         {
             Console.WriteLine("Pessoa comprando");
+        }
+
+        //Sobrecarga de método
+        public void Comprar(int valor)
+        {
+            //Validar se o valor é positivo, caso contrário lançar exception
+            if (valor < 0)
+            {
+                throw new ValorInvalidoException("Valor não pode ser negativo");
+            }
+            Console.WriteLine("Pessoa comprando com " + valor);
         }
 
         public abstract void Vender();
