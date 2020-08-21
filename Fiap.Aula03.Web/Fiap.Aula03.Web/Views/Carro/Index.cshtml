@@ -1,0 +1,41 @@
+﻿@model List<Carro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+
+<h1>Index</h1>
+<a asp-action="cadastrar">Cadastrar Carro</a>
+<table class="table">
+    <tr>
+        <th>Código</th>
+        <th>Modelo</th>
+        <th>Data Entrada</th>
+        <th>Novo</th>
+        <th>Combustível</th>
+        <th>Ano</th>
+        <th></th>
+    </tr>
+    @foreach(var carro in Model)
+    {
+        <tr>
+            <td>@carro.Codigo</td>
+            <td>@carro.Modelo</td>
+            <td>@carro.DataEntrada</td>
+            <td>@carro.Novo</td>
+            <td>@carro.Combustivel</td>
+            <td>@carro.Ano</td>
+            <td>
+                <!--Link para editar um carro, deve enviar o código do carro-->
+                <a asp-action="Editar" asp-route-id="@carro.Codigo">Editar</a>
+            </td>
+        </tr>
+    }
+</table>

@@ -31,7 +31,10 @@ namespace Fiap.Aula02.Web.Controllers
 
             //Sobrevive após um redirect
             TempData["msg"] = "Produto cadastrado!";
-            return RedirectToAction("Cadastrar");
+            //return RedirectToAction("Cadastrar");
+
+            //Envia o objeto produto para a view
+            return View(produto); 
         }
 
     }
