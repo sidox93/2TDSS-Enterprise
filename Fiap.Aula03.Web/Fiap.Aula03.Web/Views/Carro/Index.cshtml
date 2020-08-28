@@ -4,12 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
-@if (TempData["msg"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["msg"]
-    </div>
-}
+
+
+<msg texto="@TempData["msg"]"></msg>
 
 <h1>Index</h1>
 <a asp-action="cadastrar">Cadastrar Carro</a>
@@ -21,21 +18,43 @@
         <th>Novo</th>
         <th>Combustível</th>
         <th>Ano</th>
+        <th>Fabricante</th>
         <th></th>
     </tr>
-    @foreach(var carro in Model)
+    @foreach (var carro in Model)
     {
-        <tr>
-            <td>@carro.Codigo</td>
-            <td>@carro.Modelo</td>
-            <td>@carro.DataEntrada</td>
-            <td>@carro.Novo</td>
-            <td>@carro.Combustivel</td>
-            <td>@carro.Ano</td>
-            <td>
-                <!--Link para editar um carro, deve enviar o código do carro-->
-                <a asp-action="Editar" asp-route-id="@carro.Codigo">Editar</a>
-            </td>
-        </tr>
+        <partial name="_Linha" model="@carro" />
     }
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir o carro?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="remover">
+                    <input type="hidden" name="id" id="carroId" />
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Banner {
+
+    <div class="alert alert-warning">
+        Propaganda
+    </div>
+
+}

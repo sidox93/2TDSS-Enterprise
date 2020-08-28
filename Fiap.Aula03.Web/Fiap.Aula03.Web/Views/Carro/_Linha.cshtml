@@ -1,0 +1,20 @@
+﻿@model Carro
+
+<tr>
+    <td>@Model.Codigo</td>
+    <td>@Model.Modelo</td>
+    <td>@Model.DataEntrada.ToShortDateString()</td>
+    <td>@(Model.Novo?"Sim":"Não")</td>
+    <td>@Model.Combustivel</td>
+    <td>@Model.Ano</td>
+    <td>@Model.Fabricante</td>
+    <td>
+        <!--Link para editar um carro, deve enviar o código do carro-->
+        <a asp-action="Editar" class="btn btn-sm btn-dark" asp-route-id="@Model.Codigo">Editar</a>
+        <!-- Excluir -->
+        <!-- Button trigger modal -->
+        <button onclick="carroId.value = @Model.Codigo" type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal">
+            Excluir
+        </button>
+    </td>
+</tr>

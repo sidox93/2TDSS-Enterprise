@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Fiap.Aula03.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Fiap.Aula03.Web.Controllers
 {
@@ -16,6 +17,17 @@ namespace Fiap.Aula03.Web.Controllers
         public IActionResult Index()
         {
             return View(_banco); //envia a lista de carros para a view
+        }
+
+        [HttpPost]
+        public IActionResult Remover(int id)
+        {
+            //Remover o carro da lista através do index
+            _banco.RemoveAt(_banco.FindIndex(c => c.Codigo == id));
+            //Mensagem de sucesso
+            TempData["msg"] = "Carro removido!";
+            //Redirecionar para a listagem
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -33,6 +45,8 @@ namespace Fiap.Aula03.Web.Controllers
         [HttpGet]
         public IActionResult Editar(int id)
         {
+            //Método que carrega o select de fabricantes
+            CarregarFabricantes();
             //Pesquisar o carro do código informado e mandar para view
             var carro = _banco.Find(c => c.Codigo == id);
             return View(carro);
@@ -52,7 +66,21 @@ namespace Fiap.Aula03.Web.Controllers
         [HttpGet]
         public IActionResult Cadastrar()
         {
+            CarregarFabricantes();
             return View();
+        }
+
+        private void CarregarFabricantes()
+        {
+            //Enviar os valores para carregar o select do fabricante
+            List<string> lista = new List<string>();
+            lista.Add("Ford");
+            lista.Add("Fiat");
+            lista.Add("Pegeout");
+            lista.Add("Hyundai");
+
+            ViewBag.fabricantes = new SelectList(lista);
         }
     }
 }
+

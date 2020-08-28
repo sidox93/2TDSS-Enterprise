@@ -12,6 +12,8 @@ namespace Fiap.Aula03.Web.Models
         [HiddenInput]
         public int Codigo { get; set; }
 
+        public string Fabricante { get; set; }
+
         public string Modelo { get; set; }
 
         public int Ano { get; set; }
